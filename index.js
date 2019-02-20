@@ -36,3 +36,4 @@ function appendG(data) {
 }
 
 appendG(data_1);
+appendG(data_2);
