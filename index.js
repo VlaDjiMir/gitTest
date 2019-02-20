@@ -1,6 +1,9 @@
+let w = 500;
+let h = 340;
+
 let svg = d3.selectAll('body').append('svg')
-	.attr('width', 500)
-	.attr('height', 340);
+	.attr('width', w)
+	.attr('height', h);
 
 let data_1 = [
 	{"x": 100, "y": 100},
@@ -14,7 +17,31 @@ let data_2 = [
 	{"x": 200, "y": 100},
 	{"x": 200, "y": 150},
 	{"x": 200, "y": 200}
-]
+];
+
+let data_3 = [
+	{"x": 200, "y": 100},
+	{"x": 200, "y": 150},
+	{"x": 200, "y": 200}
+];
+
+let xScale = d3.scaleLinear()
+	.domain([0, w/2])
+	.range([0, w]);
+let yScale = d3.scaleTime()
+	.domain([new Date(2016, 0, 1), new Date(2019, 2, 20)])
+	.range([0, h]);
+
+let xAxis = d3.axisTop()
+	.scale(xScale);
+let yAxis = d3.axisRight()
+	.scale(yScale);
+
+let gX = svg.append('g').call(xAxis)
+	.attr('transform', 'translate(0,' + (h+2) + ')');
+let gY = svg.append('g').call(yAxis)
+	.attr('transform', 'translate(-2, 0)');
+
 
 function appendG(data) {
 	let ex = [];
