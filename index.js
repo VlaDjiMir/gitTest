@@ -17,14 +17,15 @@ let data_2 = [
 ]
 
 function appendG(data) {
-	let g = svg.append('g');
 	let ex = [];
+	
+	let g = svg.append('g');
 
 	for (let i = 0; i < data.length; i++) {
 		g.append('circle')
 			.attr('cx', data[i].x)
 			.attr('cy', data[i].y)
-			.attr('r', 5)
+			.attr('r', 3)
 			.attr('fill', 'orange');
 
 		ex.push(data[i].y);
