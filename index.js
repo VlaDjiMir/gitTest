@@ -42,7 +42,7 @@ let xScale = d3.scaleLinear()
 	.domain([0, w/2])
 	.range([0, w]);
 let yScale = d3.scaleTime()
-	.domain([new Date(1999, 10, 1), new Date(2000, 6, 1)])
+	.domain([new Date(1999, 11, 15), new Date(2000, 4, 4)])
 	.range([0, h]);
 
 let xAxis = d3.axisTop()
@@ -88,12 +88,15 @@ function appendT(data) {
 			.attr('cx', data.position)
 			.attr('cy', yScale(data.event[i].date))
 			.attr('r', 3)
-			.attr('fill', 'orange');
+			.attr('fill', 'orange')
+			.attr('id', data.event.id);
 
 		ex.push(data.event[i].date);
 	}
 
-	console.log(ex);
+	// Задать домэйн для yAxis
+	console.log(d3.min(ex));
+	console.log(d3.max(ex));
 
 	g.append('path')
 		.attr('d', 'M' + data.position + ',' + yScale(d3.min(ex)) + 'V' + yScale(d3.max(ex)))
