@@ -1,3 +1,8 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 svg {
     box-shadow: 1px 1px 3px gray;
 }
