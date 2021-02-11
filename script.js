@@ -10,3 +10,5 @@ const promise = () => {
 promise().then(() => {
     console.info('YOUR PROMISE')
 })
+
+console.info('Async')
